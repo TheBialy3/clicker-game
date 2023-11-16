@@ -1,6 +1,7 @@
 package main;
 
 
+import managers.TileManager;
 import scenes.*;
 
 import javax.swing.*;
@@ -22,6 +23,7 @@ public class Game extends JFrame implements Runnable {
     public ImageIcon img;
 
     //Classes
+    private TileManager tileManager;
     private Render render;
     private Playing playing;
     private Settings settings;
@@ -38,7 +40,7 @@ public class Game extends JFrame implements Runnable {
     public Game() {
         initClasses();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("Biały Precel TD");
+        setTitle("Biały Precel");
         img = new ImageIcon("res/rest/logo.png");
         setIconImage(img.getImage());
         //setUndecorated(true);
@@ -55,6 +57,7 @@ public class Game extends JFrame implements Runnable {
     }
 
     public void initClasses() {
+        tileManager=new TileManager();
         gameScreen = new GameScreen(this);
         render = new Render(this);
         playing = new Playing(this);
@@ -144,5 +147,9 @@ public class Game extends JFrame implements Runnable {
 
     public Upgrade getUpgrade() {
         return upgrade;
+    }
+
+    public TileManager getTileManager() {
+        return tileManager;
     }
 }

@@ -1,9 +1,12 @@
 package inputs;
 
 import main.Game;
+import main.GameStates;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import static main.GameStates.PLAYING;
 
 public class KeyboardListener implements KeyListener {
     private Game game;
@@ -20,9 +23,9 @@ public class KeyboardListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-//        if(GameStates.gameStates==PLAYING){
-//            game.getPlaying().keyPressed(e);
-//        }
+        if(GameStates.gameStates==PLAYING){
+            game.getPlaying().keyPressed(e);
+        }
     }
 
     @Override
