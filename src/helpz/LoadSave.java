@@ -10,7 +10,7 @@ public class LoadSave {
 
     public static BufferedImage getSpriteAtlas() {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("pngFile/final.png");
+        InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("png/final.png");
         try {
             img = ImageIO.read(is);
         } catch (IOException e) {
@@ -135,11 +135,11 @@ public class LoadSave {
         }
     }
 
-    public static int[][] GetLevelData() {
-        File lvlFile = new File("res/textFile/level1.txt");
+    public static int[][] GetLevelData(int y,int x) {
+        File lvlFile = new File("res/textFile/level.txt");
         if (lvlFile.exists()) {
             ArrayList<Integer> list = ReadFromFile(lvlFile);
-            return Utilz.ArrayListTo2Dint(list, 20, 20);
+            return Utilz.ArrayListTo2Dint(list, y, x);
         } else {
             System.out.println("File: level1.txt nieistnieje");
             return null;

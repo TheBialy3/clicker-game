@@ -12,7 +12,6 @@ public class Render {
     }
 
     public void render(Graphics g) {
-
         switch (GameStates.gameStates) {
             case PLAYING:
                 game.getPlaying().render(g);

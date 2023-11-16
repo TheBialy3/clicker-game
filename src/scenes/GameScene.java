@@ -33,10 +33,10 @@ public class GameScene {
         }
     }
 
-//    protected BufferedImage getSprite(int spriteId) {
-//        return game.getTileManager().getSprite(spriteId);
-//    }
-//
+    protected BufferedImage getSprite(int spriteId) {
+        return game.getTileManager().getSprite(spriteId);
+    }
+
 //    protected BufferedImage getSprite(int spriteId,int animationIndex) {
 //        return game.getTileManager().getAnimSprite(spriteId,animationIndex);
 //    }
