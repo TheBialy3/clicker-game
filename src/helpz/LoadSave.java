@@ -139,11 +139,15 @@ public class LoadSave {
         File lvlFile = new File("res/textFile/level.txt");
         if (lvlFile.exists()) {
             ArrayList<Integer> list = ReadFromFile(lvlFile);
+            System.out.println(list);
+            System.out.println(list.size());
             return Utilz.ArrayListTo2Dint(list, y, x);
+
         } else {
             System.out.println("File: level1.txt nieistnieje");
             return null;
         }
+
     }
 
     public static void CreateSaveFile() {

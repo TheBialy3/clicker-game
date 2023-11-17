@@ -13,8 +13,9 @@ public class Playing extends GameScene implements SceneMethods {
 
     private int mapY = 40, mapX = 40;
     private int screenY = 10, screenX = 10;//from40x40 u see from 10 to 30;
-    private int[][] lvl,wholeLVL;
-    private int heightOfScreen = 20,wightOfScreen = 23;
+    private int heightOfScreen = 20, wightOfScreen = 24;
+    private int[][] lvl=new int[heightOfScreen][wightOfScreen], wholeLVL;
+
 
     //help units
     private int tilePixelNumber = 64;
@@ -35,16 +36,20 @@ public class Playing extends GameScene implements SceneMethods {
     }
 
     private void getLevel() {
-        wholeLVL = GetLevelData(mapY,mapX);
-        lvl=wholeLVL;
+        wholeLVL = GetLevelData(mapY, mapX);
+
+        for (int y = 0; y < mapY; y++) {
+            for (int x = 0; x < mapX; x++) {
+                System.out.print(wholeLVL[y][x]);
+            }
+            System.out.println();
+        }
         getLevelScreen();
     }
 
     private void getLevelScreen() {
         for (int y = 0; y < heightOfScreen; y++) {
-            for (int x = 0; x < wightOfScreen; x++) {
-                lvl[y][x] =wholeLVL[screenY+y][screenX+x];
-            }
+            System.arraycopy(wholeLVL[screenY + y], screenX, lvl[y], 0, wightOfScreen);
         }
     }
 
@@ -99,7 +104,7 @@ public class Playing extends GameScene implements SceneMethods {
                 }
                 break;
             case KeyEvent.VK_D:
-                if (screenX < mapX-wightOfScreen) {
+                if (screenX < mapX - wightOfScreen) {
                     screenX++;
                     getLevelScreen();
                 }
@@ -111,7 +116,7 @@ public class Playing extends GameScene implements SceneMethods {
                 }
                 break;
             case KeyEvent.VK_S:
-                if (screenY < mapY-heightOfScreen) {
+                if (screenY < mapY - heightOfScreen) {
                     screenY++;
                     getLevelScreen();
                 }
