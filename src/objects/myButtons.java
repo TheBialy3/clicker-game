@@ -2,7 +2,7 @@ package objects;
 
 import java.awt.*;
 
-public class HeroButtons {
+public class myButtons {
     public int x, y, width, height,id;
     private String text;
     private boolean mouseOver,mousePressed,mouseReleased;
@@ -11,7 +11,7 @@ public class HeroButtons {
 
     private Rectangle bounds;
     //NormalButtons
-    public HeroButtons(String text, int x, int y, int width, int height) {
+    public myButtons(String text, int x, int y, int width, int height) {
         this.text = text;
         this.x = x;
         this.y = y;
@@ -21,7 +21,7 @@ public class HeroButtons {
         initBounds();
     }
     //TileButtons
-    public HeroButtons(String text, int x, int y, int width, int height, int id) {
+    public myButtons(String text, int x, int y, int width, int height, int id) {
         this.text = text;
         this.x = x;
         this.y = y;

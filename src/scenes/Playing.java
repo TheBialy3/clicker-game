@@ -15,6 +15,14 @@ public class Playing extends GameScene implements SceneMethods {
     private int screenY = 10, screenX = 10;//from40x40 u see from 10 to 30;
     private int heightOfScreen = 20, wightOfScreen = 24;
     private int[][] lvl=new int[heightOfScreen][wightOfScreen], wholeLVL;
+    public enum PlayGameState {
+        PLAY_PLAY,
+        PLAY_PAUSED,
+        PLAY_GAME_OVER,
+        PLAY_WIN,
+        PLAY_CARD_SELECT;
+    }
+    PlayGameState playState = PlayGameState.PLAY_PLAY;
 
 
     //help units
@@ -27,7 +35,17 @@ public class Playing extends GameScene implements SceneMethods {
 
 
     public void update() {
-        updateTick();
+        switch (playState) {
+            case PLAY_PLAY :
+                updateTick();
+                break;
+            case PLAY_PAUSED:
+                break;
+            case PLAY_WIN:
+                break;
+
+        }
+
     }
 
     @Override
@@ -89,6 +107,10 @@ public class Playing extends GameScene implements SceneMethods {
 
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
+            case KeyEvent.VK_ESCAPE: if( playState == PlayGameState.PLAY_PLAY){
+                playState = PlayGameState.PLAY_PAUSED;
+            }
+                break;
             case KeyEvent.VK_Z:
                 break;
             case KeyEvent.VK_X:
