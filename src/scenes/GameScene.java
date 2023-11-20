@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 public class GameScene {
     protected Game game;
-    protected int animationIndex;
+    protected int animationIndex,animationIndexLimit=704;
     protected int tick;
     protected int ANIMATION_SPEED=2;
 
@@ -27,7 +27,7 @@ public class GameScene {
         if(tick>=ANIMATION_SPEED){
             tick=0;
             animationIndex++;
-            if(animationIndex>=704){
+            if(animationIndex>=animationIndexLimit){
                 animationIndex=0;
             }
         }
@@ -35,6 +35,10 @@ public class GameScene {
 
     protected BufferedImage getSprite(int spriteId) {
         return game.getTileManager().getSprite(spriteId);
+    }
+
+    protected int getAnimationIndex(){
+        return animationIndex;
     }
 
 //    protected BufferedImage getSprite(int spriteId,int animationIndex) {

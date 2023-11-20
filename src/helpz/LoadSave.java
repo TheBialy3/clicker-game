@@ -19,7 +19,7 @@ public class LoadSave {
         return img;
     }
 
-    public static BufferedImage getBackgroundImg() {
+    public static BufferedImage getMyImg(String name) {
         BufferedImage img = null;
         InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("pngFile/back.png");
         try {
