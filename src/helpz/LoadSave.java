@@ -21,7 +21,7 @@ public class LoadSave {
 
     public static BufferedImage getMyImg(String name) {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("pngFile/back.png");
+        InputStream is = LoadSave.class.getClassLoader().getResourceAsStream("pngFile/"+name+".png");
         try {
             img = ImageIO.read(is);
         } catch (IOException e) {
