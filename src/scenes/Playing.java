@@ -55,7 +55,6 @@ public class Playing extends GameScene implements SceneMethods {
 
     private void getLevel() {
         wholeLVL = GetLevelData(mapY, mapX);
-
         for (int y = 0; y < mapY; y++) {
             for (int x = 0; x < mapX; x++) {
                 System.out.print(wholeLVL[y][x]);

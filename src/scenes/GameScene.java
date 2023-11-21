@@ -41,6 +41,10 @@ public class GameScene {
         return animationIndex;
     }
 
+//    protected BufferedImage getSprite(String spriteId) {
+//        return game.getTileManager().getSprite(spriteId);
+//    }
+
 //    protected BufferedImage getSprite(int spriteId,int animationIndex) {
 //        return game.getTileManager().getAnimSprite(spriteId,animationIndex);
 //    }
