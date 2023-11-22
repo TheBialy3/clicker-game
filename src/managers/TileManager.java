@@ -6,7 +6,7 @@ import objects.Tile;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import static helpz.Constants.Direction.Tiles.GRASS_TILE;
+import static helpz.Constants.Tiles.GRASS_TILE;
 
 public class TileManager {
     private BufferedImage atlas;
