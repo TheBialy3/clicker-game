@@ -51,6 +51,13 @@ public class Playing extends GameScene implements SceneMethods {
     @Override
     public void render(Graphics g) {
         drawLevel(g);
+        drawResorcys(g);
+        drawElements(g);
+    }
+
+    private void drawResorcys(Graphics g) {
+    }
+    private void drawElements(Graphics g) {
     }
 
     private void getLevel() {
