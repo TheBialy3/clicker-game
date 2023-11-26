@@ -13,6 +13,13 @@ public class Item {
         this.x=x;
         this.y=y;
         this.itemType=itemType;
+        hitbox = new Rectangle((int) x, (int) y, 20, 20);
+    }
+
+    public Item(int itemType){
+        this.x=x;
+        this.y=y;
+        this.itemType=itemType;
     }
 
     public void moveItem(float speed,int direction ){
@@ -32,5 +39,12 @@ public class Item {
         }
     }
 
+    public int getItemType(){
+        return itemType;
+    }
 
+
+    public Rectangle getHitbox() {
+        return hitbox;
+    }
 }

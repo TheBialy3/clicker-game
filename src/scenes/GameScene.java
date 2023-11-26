@@ -6,9 +6,9 @@ import java.awt.image.BufferedImage;
 
 public class GameScene {
     protected Game game;
-    protected int animationIndex,animationIndexLimit=704;
+    protected int animationIndex,animationIndexLimit=4;
     protected int tick;
-    protected int ANIMATION_SPEED=2;
+    protected int ANIMATION_SPEED=5;
 
     public GameScene(Game game){
         this.game = game;

@@ -22,14 +22,13 @@ public class Constants {
         public static final int ROAD_DIR = 3;
     }
     public static class BeltType {
-        public static final int WATER_TILE = 0;
-        public static final int GRASS_TILE = 1;
-        public static final int ROAD_TILE = 2;
-        public static final int ROAD_DIR = 3;
-        public static final int WATER_TILE = 0;
-        public static final int GRASS_TILE = 1;
-        public static final int ROAD_TILE = 2;
-        public static final int ROAD_DIR = 3;
+        public static final int BELT_LR = 0;
+        public static final int BELT_TB = 1;
+        public static final int BELT_CORNER_LT = 2;
+        public static final int BELT_CORNER_TR = 3;
+        public static final int BELT_CORNER_RB = 4;
+        public static final int BELT_CORNER_BL = 5;
+
     }
     public static class PortalType {
         public static final int IN = 0;
