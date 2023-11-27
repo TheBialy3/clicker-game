@@ -1,5 +1,5 @@
 gold
 secend
-level
+unlocked slots
 1 helper lvl
 2h lvl
