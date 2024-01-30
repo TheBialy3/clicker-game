@@ -1,4 +1,4 @@
-package objects;
+package buildings;
 
 public class Portal {
     private int x,y;

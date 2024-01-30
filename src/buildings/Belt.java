@@ -1,4 +1,4 @@
-package objects;
+package buildings;
 
 public class Belt {
     private int x, y, rotation;
