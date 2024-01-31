@@ -5,6 +5,9 @@ public class Furnace {
     private int id;
 
     public Furnace(int x, int y, int id,int rotation){
-
+        this.x = x;
+        this.y = y;
+        this.id = id;
+        this.rotation=rotation;
     }
 }
