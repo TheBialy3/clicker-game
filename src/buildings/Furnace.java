@@ -10,4 +10,19 @@ public class Furnace {
         this.id = id;
         this.rotation=rotation;
     }
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getRotation() {
+        return rotation;
+    }
 }
