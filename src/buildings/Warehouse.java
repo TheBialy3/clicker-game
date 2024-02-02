@@ -1,12 +1,11 @@
 package buildings;
 
-public class Warehouse {
+public class Warehouse  extends Building{
 
-    private int x, y, rotation;
-    private int id;
+
 
     public Warehouse(int x, int y, int id, int capacity) {
-
+       super(x,y,id);
     }
 
 

@@ -1,25 +1,15 @@
 package buildings;
 
-public class Portal {
+public class Portal extends Building{
     private int x,y;
     private int id;
     private int portalType;
     public Portal(int x, int y, int id, int portalType) {
-        this.x = x;
-        this.y = y;
-        this.id = id;
-        this.portalType = portalType;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
+        super(x,y,id);
     }
 
     public int getPortalType() {
         return portalType;
     }
+
 }
