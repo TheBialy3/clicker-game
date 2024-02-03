@@ -1,8 +1,15 @@
 package helpz;
 
 public class Constants {
-    public static class Direction {
+    public static class NumbersOf {
 
+        public static final int TILE_PIXEL_NUMBER = 64;
+       // public static final int UP = 21;
+
+    }
+
+
+    public static class Direction {
 
         public static final int LEFT = 20;
         public static final int UP = 21;
