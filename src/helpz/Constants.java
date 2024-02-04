@@ -7,7 +7,22 @@ public class Constants {
        // public static final int UP = 21;
 
     }
+    public static class Recipes {
 
+        public static final int LEFT = 20;
+        public static final int UP = 21;
+        public static final int RIGHT = 18;
+        public static final int DOWN = 19;
+
+    }
+    public static class FurnaceRecipes {
+
+        public static final int IRON_BAR = 1;
+        public static final int COPRER_BAR = 2;
+        public static final int STEEL_BAR = 3;
+        public static final int GLASS = 4;
+
+    }
 
     public static class Direction {
 
