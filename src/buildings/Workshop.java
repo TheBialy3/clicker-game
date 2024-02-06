@@ -3,7 +3,10 @@ package buildings;
 import objects.Item;
 import objects.Recipe;
 
+import java.util.ArrayList;
+
 public class Workshop extends Building {
+    private ArrayList<Item> itemInside =new ArrayList<>();
     private int heightInTiles = 3, wightInTiles = 3;
     private Item itemReady1, itemRequired1;
     private Item itemReady2, itemRequired2;
@@ -17,15 +20,27 @@ public class Workshop extends Building {
     }
 
     public void createItem() {
+        itemInside.add(actualRecipe.getProduced());
+        removeItems();
+    }
+
+    private void removeItems() {
 
     }
 
     public void setRecipe(Recipe recipe) {
         actualRecipe = recipe;
+        itemRequired1 = recipe.getItemRequired1();
+        if (recipe.getNumberOfItemRequired() > 2) {
+            itemRequired2 = recipe.getItemRequired2();
+        }
+        if (recipe.getNumberOfItemRequired() > 3) {
+            itemRequired3 = recipe.getItemRequired3();
+        }
     }
 
-    public void collectItem() {
-
+    public void collectItem(Item collected) {
+itemInside.add(collected);
     }
 
     public void canItemEnter(int numberOfItems) {
