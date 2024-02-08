@@ -46,16 +46,16 @@ public class Recipe {
         return produced;
     }
 
-    public Item getItemRequired1() {
-        return itemRequired1;
+    public int getItemTypeRequired1() {
+        return itemRequired1.getItemType();
     }
 
-    public Item getItemRequired2() {
-        return itemRequired2;
+    public int getItemTypeRequired2() {
+        return itemRequired2.getItemType();
     }
 
-    public Item getItemRequired3() {
-        return itemRequired3;
+    public int getItemTypeRequired3() {
+        return itemRequired3.getItemType();
     }
 
     public int getNumberOfItemRequired() {
