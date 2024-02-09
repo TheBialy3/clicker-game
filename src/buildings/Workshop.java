@@ -54,32 +54,39 @@ public class Workshop extends Building {
     }
 
     private void removeItems() {
-
+        for (int itemType : itemsForCreatoin) {
+            for (Item item : itemInside) {
+                if(itemType==item.getItemType()){
+                    itemInside.remove(item);
+                    break;
+                }
+            }
+        }
     }
 
     public void setRecipe(Recipe recipe) {
-        if (recipe==null) {
+        if (recipe == null) {
             buildingStatus = BuildingStatus.NO_RECIPE;
         } else {
             actualRecipe = recipe;
             itemTypeReady1 = recipe.getItemTypeRequired1();
-            for(int i=0;i<recipe.getFirstItemAmount();i++){
+            for (int i = 0; i < recipe.getFirstItemAmount(); i++) {
                 itemsForCreatoin.add(recipe.getItemTypeRequired1());
             }
             if (recipe.getNumberOfItemRequired() > 2) {
                 itemTypeReady2 = recipe.getItemTypeRequired2();
-                for(int i=0;i<recipe.getSecondItemAmount();i++){
+                for (int i = 0; i < recipe.getSecondItemAmount(); i++) {
                     itemsForCreatoin.add(recipe.getItemTypeRequired2());
                 }
             }
             if (recipe.getNumberOfItemRequired() > 3) {
                 itemTypeReady3 = recipe.getItemTypeRequired3();
-                for(int i=0;i<recipe.getThreadItemAmount();i++){
+                for (int i = 0; i < recipe.getThreadItemAmount(); i++) {
                     itemsForCreatoin.add(recipe.getItemTypeRequired3());
                 }
             }
             buildingStatus = BuildingStatus.REST;
-            
+
         }
     }
 
@@ -134,5 +141,9 @@ public class Workshop extends Building {
 
     public int getRotation() {
         return rotation;
+    }
+
+    public int getCreatedItemType(){
+        return actualRecipe.getProduced().getItemType();
     }
 }
