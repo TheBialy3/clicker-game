@@ -16,6 +16,7 @@ public class Workshop extends Building {
     private int rotation;
     private int timeToCreateItem, time = 0;
 
+
     BuildingStatus buildingStatus = BuildingStatus.NO_RECIPE;
 
 
@@ -42,9 +43,8 @@ public class Workshop extends Building {
     }
 
     private void isItemDone() {
-        if (time == timeToCreateItem) {
+        if (time >= timeToCreateItem) {
             createItem();
-
         }
     }
 
@@ -145,5 +145,20 @@ public class Workshop extends Building {
 
     public int getCreatedItemType(){
         return actualRecipe.getProduced().getItemType();
+    }
+
+    public Item pullOutItem(){
+        Item itemToPull=findProducedItem();
+        itemInside.remove(findProducedItem());
+        return itemToPull;
+    }
+
+    public Item findProducedItem(){
+        for(Item item:itemInside){
+            if(item.getItemType()==actualRecipe.getProduced().getItemType()){
+                return item;
+            }
+        }
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package buildings;
 
+import objects.Item;
+
 import java.awt.*;
 
 public class Building {
@@ -32,4 +34,6 @@ public class Building {
     public Rectangle getHitbox() {
         return hitbox;
     }
+
+
 }
