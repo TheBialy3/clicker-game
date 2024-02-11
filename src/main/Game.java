@@ -63,6 +63,7 @@ public class Game extends JFrame implements Runnable {
         playing = new Playing(this);
         settings = new Settings(this);
         upgrade = new Upgrade(this);
+        ArrayListsToGet();
     }
 
 
