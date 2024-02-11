@@ -9,9 +9,9 @@ public class Workshop extends Building {
     private ArrayList<Item> itemInside = new ArrayList<>();
     private ArrayList<Integer> itemsForCreatoin = new ArrayList<>();
     private int heightInTiles = 3, wightInTiles = 3;
-    private int itemTypeReady1, itemTypeRequired1;
-    private int itemTypeReady2, itemTypeRequired2;
-    private int itemTypeReady3, itemTypeRequired3;
+    private int itemTypeReady1;
+    private int itemTypeReady2;
+    private int itemTypeReady3;
     private Recipe actualRecipe;
     private int rotation;
     private int timeToCreateItem, time = 0;
@@ -45,6 +45,7 @@ public class Workshop extends Building {
     private void isItemDone() {
         if (time >= timeToCreateItem) {
             createItem();
+            time=0;
         }
     }
 
@@ -56,7 +57,7 @@ public class Workshop extends Building {
     private void removeItems() {
         for (int itemType : itemsForCreatoin) {
             for (Item item : itemInside) {
-                if(itemType==item.getItemType()){
+                if (itemType == item.getItemType()) {
                     itemInside.remove(item);
                     break;
                 }
@@ -67,6 +68,11 @@ public class Workshop extends Building {
     public void setRecipe(Recipe recipe) {
         if (recipe == null) {
             buildingStatus = BuildingStatus.NO_RECIPE;
+            actualRecipe = null;
+            itemTypeReady1 = -1;
+            itemTypeReady2 = -1;
+            itemTypeReady3 = -1;
+
         } else {
             actualRecipe = recipe;
             itemTypeReady1 = recipe.getItemTypeRequired1();
@@ -86,7 +92,7 @@ public class Workshop extends Building {
                 }
             }
             buildingStatus = BuildingStatus.REST;
-
+            timeToCreateItem=recipe.getTimeToFinish();
         }
     }
 
@@ -97,24 +103,18 @@ public class Workshop extends Building {
     public void canBuildingStartWorking() {
         switch (actualRecipe.getNumberOfItemRequired()) {
             case 1:
-                if (itemTypeReady1 == itemTypeReady1) {
-                    if (howManyItems(itemTypeReady1) >= actualRecipe.getFirstItemAmount()) {
-                        buildingStatus = BuildingStatus.WORKING;
-                    }
+                if (howManyItems(itemTypeReady1) >= actualRecipe.getFirstItemAmount()) {
+                    buildingStatus = BuildingStatus.WORKING;
                 }
                 break;
             case 2:
-                if (itemTypeReady1 == itemTypeReady1 && itemTypeReady2 == itemTypeReady2) {
-                    if (howManyItems(itemTypeReady1) >= actualRecipe.getFirstItemAmount() && howManyItems(itemTypeReady2) >= actualRecipe.getSecondItemAmount()) {
-                        buildingStatus = BuildingStatus.WORKING;
-                    }
+                if (howManyItems(itemTypeReady1) >= actualRecipe.getFirstItemAmount() && howManyItems(itemTypeReady2) >= actualRecipe.getSecondItemAmount()) {
+                    buildingStatus = BuildingStatus.WORKING;
                 }
                 break;
             case 3:
-                if (itemTypeReady1 == itemTypeReady1 && itemTypeReady2 == itemTypeReady2 && itemTypeReady3 == itemTypeReady3) {
-                    if (howManyItems(itemTypeReady1) >= actualRecipe.getFirstItemAmount() && howManyItems(itemTypeReady2) >= actualRecipe.getSecondItemAmount() && howManyItems(itemTypeReady3) >= actualRecipe.getThreadItemAmount()) {
-                        buildingStatus = BuildingStatus.WORKING;
-                    }
+                if (howManyItems(itemTypeReady1) >= actualRecipe.getFirstItemAmount() && howManyItems(itemTypeReady2) >= actualRecipe.getSecondItemAmount() && howManyItems(itemTypeReady3) >= actualRecipe.getThreadItemAmount()) {
+                    buildingStatus = BuildingStatus.WORKING;
                 }
                 break;
         }
@@ -143,19 +143,19 @@ public class Workshop extends Building {
         return rotation;
     }
 
-    public int getCreatedItemType(){
+    public int getCreatedItemType() {
         return actualRecipe.getProduced().getItemType();
     }
 
-    public Item pullOutItem(){
-        Item itemToPull=findProducedItem();
+    public Item pullOutItem() {
+        Item itemToPull = findProducedItem();
         itemInside.remove(findProducedItem());
         return itemToPull;
     }
 
-    public Item findProducedItem(){
-        for(Item item:itemInside){
-            if(item.getItemType()==actualRecipe.getProduced().getItemType()){
+    public Item findProducedItem() {
+        for (Item item : itemInside) {
+            if (item.getItemType() == actualRecipe.getProduced().getItemType()) {
                 return item;
             }
         }

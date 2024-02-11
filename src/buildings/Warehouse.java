@@ -23,24 +23,7 @@ private  int capacity;
         return hitbox;
     }
 
-    public void pushItemInside(Item item){
-        itemInside.add(item);
-    }
 
-    public Item pullOutItem(int itemType){
-        Item itemToPull=findItem(itemType);
-        itemInside.remove(findItem(itemType));
-        return itemToPull;
-    }
-
-    public Item findItem(int itemType){
-        for(Item item:itemInside){
-            if(item.getItemType()==itemType){
-                return item;
-            }
-        }
-        return null;
-    }
 
 
 }
