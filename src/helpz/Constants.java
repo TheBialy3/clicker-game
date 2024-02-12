@@ -15,15 +15,21 @@ public class Constants {
         public static final int DOWN = 19;
 
     }
-    public static class Items{
+    public static class ItemsType {
         public static final int IRON_ORE = 1;
 
         public static final int COPRER_ORE = 2;
         public static final int SAND = 3;
         public static final int STONE = 4;
         public static final int COAL = 5;
-        public static final int IRON_BAR = 6;
-        public static final int COPRER_BAR = 7;
+        public static final int WOOD = 6;
+        public static final int WATER = 7;
+        public static final int LAVA = 8;
+
+
+
+//        public static final int IRON_BAR = 6;
+//        public static final int COPRER_BAR = 7;
 //        public static final int STEEL_BAR = 8;
 //        public static final int GLASS = 4;
 

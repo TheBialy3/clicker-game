@@ -3,6 +3,7 @@ package main;
 
 import managers.TileManager;
 import scenes.*;
+import helpz.ArrayListsToGet;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,6 +29,7 @@ public class Game extends JFrame implements Runnable {
     private Playing playing;
     private Settings settings;
     private Upgrade upgrade;
+    private ArrayListsToGet  arrayListsToGet;
 
 
 
@@ -63,7 +65,8 @@ public class Game extends JFrame implements Runnable {
         playing = new Playing(this);
         settings = new Settings(this);
         upgrade = new Upgrade(this);
-        ArrayListsToGet();
+        arrayListsToGet=new ArrayListsToGet();
+        playing.getGameArrayLists();
     }
 
 
@@ -152,5 +155,9 @@ public class Game extends JFrame implements Runnable {
 
     public TileManager getTileManager() {
         return tileManager;
+    }
+
+    public ArrayListsToGet getArrayListsToGet() {
+        return arrayListsToGet;
     }
 }

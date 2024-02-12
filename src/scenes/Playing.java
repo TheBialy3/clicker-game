@@ -1,5 +1,6 @@
 package scenes;
 
+import helpz.ArrayListsToGet;
 import helpz.LoadSave;
 import main.Game;
 
@@ -12,11 +13,16 @@ import static helpz.LoadSave.GetLevelData;
 public class Playing extends GameScene implements SceneMethods {
 
     private int mapY = 40, mapX = 40;
+    private ArrayListsToGet arrayListsToGet;
     private int screenY = 10, screenX = 10;//from40x40 u see from 10 to 30;
     private int heightOfScreen = 20, wightOfScreen = 24;
     private int[][] lvl = new int[heightOfScreen][wightOfScreen], wholeLVL;
 
     private int gold = 100, levelCost = 100;
+
+    public void getGameArrayLists() {
+        arrayListsToGet=game.getArrayListsToGet();
+    }
 
     public enum PlayGameState {
         PLAY_PLAY,

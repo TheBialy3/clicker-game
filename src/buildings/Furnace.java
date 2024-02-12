@@ -1,5 +1,6 @@
 package buildings;
 
+import helpz.ArrayListsToGet;
 import objects.Item;
 
 import java.util.ArrayList;
@@ -9,18 +10,26 @@ public class Furnace extends Building {
 
     private ArrayList<Integer> smeltableItems = new ArrayList<>();
     private ArrayList<Item> itemInside = new ArrayList<>();
+    private ArrayList<Integer> fuelList = new ArrayList<>();
+    private ArrayList<Integer> smelterItemsList = new ArrayList<>();
+
     BuildingStatus buildingStatus = BuildingStatus.REST;
     private  Item itemSmelting;
 
     private enum BuildingStatus {WORKING, REST}
 
     private int timeToCreateItem, time = 0;
+    private int fuelLevel=0;
     private int rotation;
 
-    public Furnace(int x, int y, int id, int rotation) {
+
+    public Furnace(int x, int y, int id, int rotation, ArrayListsToGet arrayListsToGet) {
         super(x, y, id);
         this.rotation = rotation;
+        fuelList=arrayListsToGet.getFuelItems();
     }
+
+
 
     public void update() {
         switch (buildingStatus) {
@@ -36,12 +45,18 @@ public class Furnace extends Building {
 
 
     public void canBuildingStartWorking() {
-
-        if (itemTypeReady1 == itemTypeReady1) {
-            if (howManyItems(itemTypeReady1) >= actualRecipe.getFirstItemAmount()) {
-                buildingStatus = Workshop.BuildingStatus.WORKING;
+        for(Item item:itemInside) {
+            for (int itemTypeToSmelt : smelterItemsList) {
+                if (item.getItemType() == itemTypeToSmelt) {
+                    if (isFuelRedy()) {
+                        buildingStatus = BuildingStatus.WORKING;
+                    }
+                }
             }
         }
+    }
+    private boolean isFuelRedy() {
+
     }
 
 
@@ -53,7 +68,7 @@ public class Furnace extends Building {
     }
 
     public void smeltItem(int itemType) {
-        removeItem();
+        removeItems(itemType);
         itemInside.add(new Item(itemType));
 
     }
@@ -91,3 +106,5 @@ public class Furnace extends Building {
         return null;
     }
 }
+
+
