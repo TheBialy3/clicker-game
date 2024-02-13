@@ -14,21 +14,20 @@ public class Furnace extends Building {
     private ArrayList<Integer> smelterItemsList = new ArrayList<>();
 
     BuildingStatus buildingStatus = BuildingStatus.REST;
-    private  Item itemSmelting;
+    private Item itemSmelting;
 
     private enum BuildingStatus {WORKING, REST}
 
     private int timeToCreateItem, time = 0;
-    private int fuelLevel=0;
+    private int fuelLevel = 0;
     private int rotation;
 
 
     public Furnace(int x, int y, int id, int rotation, ArrayListsToGet arrayListsToGet) {
         super(x, y, id);
         this.rotation = rotation;
-        fuelList=arrayListsToGet.getFuelItems();
+        fuelList = arrayListsToGet.getFuelItems();
     }
-
 
 
     public void update() {
@@ -45,18 +44,27 @@ public class Furnace extends Building {
 
 
     public void canBuildingStartWorking() {
-        for(Item item:itemInside) {
+        for (Item item : itemInside) {
             for (int itemTypeToSmelt : smelterItemsList) {
                 if (item.getItemType() == itemTypeToSmelt) {
-                    if (isFuelRedy()) {
+                    setSmeltingItem(item);
+                    if (isFuelReady()) {
                         buildingStatus = BuildingStatus.WORKING;
                     }
                 }
             }
         }
     }
-    private boolean isFuelRedy() {
 
+    private void setSmeltingItem(Item item) {
+        itemSmelting=item;
+    }
+
+    private boolean isFuelReady() {
+        if (fuelLevel > 0) {
+            return true;
+        }
+        return false;
     }
 
 
@@ -67,10 +75,16 @@ public class Furnace extends Building {
         }
     }
 
-    public void smeltItem(int itemType) {
-        removeItems(itemType);
-        itemInside.add(new Item(itemType));
+    public void smeltItem() {
+        removeItems(itemSmelting.getItemType());
+        itemInside.add(new Item(getSmeltedType(itemSmelting.getItemType())));
 
+    }
+
+    private int getSmeltedType(int itemType) {
+        switch (itemType){
+            case I :
+        }
     }
 
     private void removeItems(int itemType) {

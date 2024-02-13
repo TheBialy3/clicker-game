@@ -24,6 +24,13 @@ public class ArrayListsToGet {
 
         ///////////////////////////////////////////////////////////
 
+        smelterItems.add(IRON_BAR);
+        smelterItems.add(COPRER_BAR);
+        smelterItems.add(GLASS);
+        smelterItems.add(STONE_BRICK);
+
+        ///////////////////////////////////////////////////////////
+
         fuelItems.add(COAL);
         fuelItems.add(WOOD);
 

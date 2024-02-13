@@ -28,10 +28,11 @@ public class Constants {
 
 
 
-//        public static final int IRON_BAR = 6;
-//        public static final int COPRER_BAR = 7;
-//        public static final int STEEL_BAR = 8;
-//        public static final int GLASS = 4;
+        public static final int IRON_BAR = 6;
+        public static final int COPRER_BAR = 7;
+        public static final int STEEL_BAR = 8;
+        public static final int GLASS = 4;
+        public static final int STONE_BRICK = 4;
 
     }
 
