@@ -5,6 +5,8 @@ import objects.Item;
 
 import java.util.ArrayList;
 
+import static helpz.Constants.ItemsType.*;
+
 public class Furnace extends Building {
     private int heightInTiles = 2, wightInTiles = 2;
 
@@ -57,21 +59,36 @@ public class Furnace extends Building {
     }
 
     private void setSmeltingItem(Item item) {
-        itemSmelting=item;
+        itemSmelting = item;
     }
 
     private boolean isFuelReady() {
         if (fuelLevel > 0) {
             return true;
         }
+        addFuel();
         return false;
+    }
+
+    private void addFuel() {
+        for (Item item:itemInside){
+            for (int fuelItemType:fuelList){
+                if(item.getItemType()==fuelItemType){
+
+                }
+            }
+        }
     }
 
 
     private void isItemDone() {
-        if (time >= timeToCreateItem) {
-            smeltItem();
-            time = 0;
+        if (isFuelReady()) {
+            if (time >= timeToCreateItem) {
+                smeltItem();
+                time = 0;
+            }
+        }else {
+            buildingStatus = BuildingStatus.REST;
         }
     }
 
@@ -82,8 +99,17 @@ public class Furnace extends Building {
     }
 
     private int getSmeltedType(int itemType) {
-        switch (itemType){
-            case I :
+        switch (itemType) {
+            case IRON_ORE:
+                return IRON_BAR;
+            case COPRER_ORE:
+                return COPRER_BAR;
+            case SAND:
+                return GLASS;
+            case STONE:
+                return GLASS;
+            default:
+                return STONE_BRICK;
         }
     }
 
