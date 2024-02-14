@@ -25,6 +25,7 @@ public class Constants {
         public static final int WOOD = 6;
         public static final int WATER = 7;
         public static final int LAVA = 8;
+        public static final int BLOCK_OF_COAL =9;
 
 
 
@@ -33,6 +34,28 @@ public class Constants {
         public static final int STEEL_BAR = 8;
         public static final int GLASS = 4;
         public static final int STONE_BRICK = 4;
+
+        public static int getCost(int itemType){////////////////////////////////////////////////////
+            switch (itemType){
+                case IRON_ORE :
+                    return 1;
+                case COPRER_ORE:
+                    return 1;
+                default:
+                    return 0;
+            }
+        }
+
+        public static int getFuelValue(int itemType){////////////////////////////////////////////////////
+            switch (itemType){
+                case COAL:
+                    return 100;
+                case WOOD:
+                    return 50;
+                default:
+                    return 0;
+            }
+        }
 
     }
 
