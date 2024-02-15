@@ -54,4 +54,5 @@ public class Item {
     public Rectangle getHitBox() {
         return hitBox;
     }
+
 }
