@@ -58,7 +58,7 @@ public class Furnace extends Building {
         }
     }
 
-    private void setSmeltingItem(Item item) {
+    private void  setSmeltingItem(Item item) {
         itemSmelting = item;
     }
 
@@ -74,7 +74,8 @@ public class Furnace extends Building {
         for (Item item:itemInside){
             for (int fuelItemType:fuelList){
                 if(item.getItemType()==fuelItemType){
-
+                    fuelLevel+=getFuelValue(fuelItemType);
+                    removeItems(fuelItemType);
                 }
             }
         }
