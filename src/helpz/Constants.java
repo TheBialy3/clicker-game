@@ -7,7 +7,7 @@ public class Constants {
         public static final int NUMBER_ADDED_FOR_SMELTERS = 21;
 
     }
-    public static class Recipes {
+    public static class Rotation {
 
         public static final int LEFT = 20;
         public static final int UP = 21;
@@ -82,8 +82,24 @@ public class Constants {
         public static final int BELT_CORNER_TR = 3;
         public static final int BELT_CORNER_RB = 4;
         public static final int BELT_CORNER_BL = 5;
+        public static float getBeltLvlSpeed(int beltLvl){
+            switch (beltLvl){
+                case 1:
+                    return 0.3f;
+                case 2:
+                    return 0.5f;
+                case 3:
+                    return 0.75f;
+                case 4:
+                    return 1f;
+                default:
+                    return 0.1f;
+            }
+
+        }
 
     }
+
     public static class PortalType {
         public static final int IN = 0;
         public static final int OUT = 1;

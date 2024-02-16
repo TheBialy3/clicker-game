@@ -14,6 +14,10 @@ public class Building {
         this.id = id;
     }
 
+    public void update(){
+
+    }
+
     public void setHitbox(Rectangle hitbox) {
         this.hitbox=hitbox;
     }
