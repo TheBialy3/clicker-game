@@ -14,7 +14,10 @@ public class BeltManager {
     }
     public void moveItems(){
         for(Item item:itemsOnBelt){
-            item.moveItem(getBeltLvlSpeed(beltLvl),rotation);
-        }
+            for(Belt belt:belts){
+                if(belt.getHitBox().contains(item.getX(),item.getY())){
+                    item.moveItem(getBeltLvlSpeed(belt.getBeltLvl()), belt.getRotation());
+                }
+            }}
     }
 }

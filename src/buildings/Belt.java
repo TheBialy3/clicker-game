@@ -2,6 +2,7 @@ package buildings;
 
 import objects.Item;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import static helpz.Constants.BeltType.getBeltLvlSpeed;
@@ -13,6 +14,7 @@ public class Belt {
     private int id;
     private int rotation;
     private int beltType,beltLvl;
+    private Rectangle hitBox;
 
     public Belt(int x, int y, int id, int beltType,int rotation,int beltLvl) {
         this.x = x;
@@ -21,9 +23,12 @@ public class Belt {
         this.rotation=rotation;
         this.beltType=beltType;
         this.beltLvl=beltLvl;
+        hitBox=new Rectangle(x,y,64,64);
     }
 
-
+    public Rectangle getHitBox() {
+        return hitBox;
+    }
 
     public int getRotation() {
         return rotation;
@@ -31,5 +36,9 @@ public class Belt {
 
     public int getBeltType() {
         return beltType;
+    }
+
+    public int getBeltLvl(){
+        return beltLvl;
     }
 }
