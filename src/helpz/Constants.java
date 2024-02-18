@@ -35,7 +35,7 @@ public class Constants {
         public static final int GLASS = 4;
         public static final int STONE_BRICK = 4;
 
-        public static int getCost(int itemType){////////////////////////////////////////////////////
+        public static int getDefaultCost(int itemType){////////////////////////////////////////////////////
             switch (itemType){
                 case IRON_ORE :
                     return 1;

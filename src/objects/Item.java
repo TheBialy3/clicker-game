@@ -3,7 +3,7 @@ package objects;
 import java.awt.*;
 
 import static helpz.Constants.Direction.*;
-import static helpz.Constants.ItemsType.getCost;
+import static helpz.Constants.ItemsType.getDefaultCost;
 
 public class Item {
 
@@ -19,14 +19,12 @@ public class Item {
     }
 
     public Item(int itemType){
-        this.x=x;
-        this.y=y;
         this.itemType=itemType;
         setCost();
     }
 
     private void setCost() {
-        cost=getCost(itemType);
+        cost=getDefaultCost(itemType);
     }
 
     public void moveItem(float speed,int direction ){
@@ -46,6 +44,18 @@ public class Item {
         }
     }
 
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public void setHitBox(Rectangle hitBox) {
+        this.hitBox = hitBox;
+    }
+
     public int getItemType(){
         return itemType;
     }
@@ -55,4 +65,15 @@ public class Item {
         return hitBox;
     }
 
+    public int getCost() {
+        return cost;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
 }
