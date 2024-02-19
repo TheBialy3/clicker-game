@@ -7,6 +7,8 @@ import objects.Item;
 import java.util.ArrayList;
 
 import static helpz.Constants.BeltType.getBeltLvlSpeed;
+import static helpz.Constants.Rotation.*;
+import static helpz.Constants.NumbersOf.TILE_PIXEL_NUMBER;
 
 public class BeltManager {
     private ArrayList<Item> itemsOnBelt = new ArrayList<>();
@@ -27,8 +29,20 @@ public class BeltManager {
         for (Item item : itemsOnSplitter) {
             for (Splitter splitter : splitters) {
                 if (splitter.getHitBox().contains(item.getX(), item.getY())) {
-                    item.setX();
-                    item.setY();
+                    if(splitter.getRotationOfItemOutput()==LEFT){
+                        item.setX((splitter.getX()-1) * TILE_PIXEL_NUMBER);
+                        item.setY(splitter.getY() * TILE_PIXEL_NUMBER);
+                    }else if(splitter.getRotationOfItemOutput()==UP){
+                        item.setX(splitter.getX() * TILE_PIXEL_NUMBER);
+                        item.setY((splitter.getY()+1) * TILE_PIXEL_NUMBER);
+                    }else if(splitter.getRotationOfItemOutput()==RIGHT){
+                        item.setX((splitter.getX()+1) * TILE_PIXEL_NUMBER);
+                        item.setY(splitter.getY() * TILE_PIXEL_NUMBER);
+                    }else{
+                        item.setX(splitter.getX() * TILE_PIXEL_NUMBER);
+                        item.setY((splitter.getY()-1) * TILE_PIXEL_NUMBER);
+                    }
+                    splitter.increaseRotationOfItemOutput();
                 }
             }
         }
