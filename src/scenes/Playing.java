@@ -30,8 +30,16 @@ public class Playing extends GameScene implements SceneMethods {
         PLAY_WIN,
         PLAY_CARD_SELECT;
     }
+    public enum PopupWindow {
+        NONE,
+        WAREHOUSE,
+        BUILDINGS,
+
+        PLAY_CARD_SELECT;
+    }
 
     PlayGameState playState = PlayGameState.PLAY_PLAY;
+    PopupWindow popupWindow = PopupWindow.NONE;
 
 
     //help units
@@ -62,6 +70,19 @@ public class Playing extends GameScene implements SceneMethods {
         drawLevel(g);
         drawResorcys(g);
         drawElements(g);
+        drawPopups(g);
+    }
+
+    private void drawPopups(Graphics g) {
+        switch (popupWindow) {
+            case WAREHOUSE:
+                break;
+            case BUILDINGS:
+                break;
+            case NONE:
+                break;
+
+        }
     }
 
     private void drawResorcys(Graphics g) {
@@ -134,7 +155,8 @@ public class Playing extends GameScene implements SceneMethods {
                     playState=PlayGameState.PLAY_CARD_SELECT;
                 }
                 break;
-            case KeyEvent.VK_Z:
+            case KeyEvent.VK_E:
+
                 break;
             case KeyEvent.VK_X:
                 break;
