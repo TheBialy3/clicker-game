@@ -1,13 +1,12 @@
 package scenes;
 
 import helpz.ArrayListsToGet;
-import helpz.LoadSave;
 import main.Game;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
+import static helpz.Constants.NumbersOf.TILE_PIXEL_NUMBER;
 import static helpz.LoadSave.GetLevelData;
 
 public class Playing extends GameScene implements SceneMethods {
@@ -16,6 +15,7 @@ public class Playing extends GameScene implements SceneMethods {
     private ArrayListsToGet arrayListsToGet;
     private int screenY = 10, screenX = 10;//from40x40 u see from 10 to 30;
     private int heightOfScreen = 20, wightOfScreen = 24;
+    private int popupHeight = 10, popupWight = 12;
     private int[][] lvl = new int[heightOfScreen][wightOfScreen], wholeLVL;
 
     private int gold = 100, levelCost = 100;
@@ -33,9 +33,10 @@ public class Playing extends GameScene implements SceneMethods {
     public enum PopupWindow {
         NONE,
         WAREHOUSE,
-        BUILDINGS,
+        BUILD_STRUCTURE,
+        WORKSHOP,
 
-        PLAY_CARD_SELECT;
+        FURNACE;
     }
 
     PlayGameState playState = PlayGameState.PLAY_PLAY;
@@ -75,17 +76,34 @@ public class Playing extends GameScene implements SceneMethods {
 
     private void drawPopups(Graphics g) {
         switch (popupWindow) {
-            case WAREHOUSE:
-                break;
-            case BUILDINGS:
-                break;
             case NONE:
                 break;
+            case WAREHOUSE:
+                drawWarehousePopup(g);
+                break;
+            case BUILD_STRUCTURE:
+                break;
+            case WORKSHOP:
+                break;
+            case FURNACE:
+                break;
+
 
         }
     }
 
+    private void drawWarehousePopup(Graphics g) {
+       drawPopupBacground  (g);
+    }
+
+    private void drawPopupBacground(Graphics g) {
+        g.setColor(new Color(82, 82, 82));
+        g.drawRect((heightOfScreen/2-popupHeight/2)*TILE_PIXEL_NUMBER,(wightOfScreen/2-popupWight/2)*TILE_PIXEL_NUMBER,popupHeight*TILE_PIXEL_NUMBER,popupWight*TILE_PIXEL_NUMBER);
+
+    }
+
     private void drawResorcys(Graphics g) {
+
     }
 
     private void drawElements(Graphics g) {
