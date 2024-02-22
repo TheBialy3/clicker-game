@@ -4,7 +4,7 @@ public class Constants {
     public static class NumbersOf {
 
         public static final int TILE_PIXEL_NUMBER = 64;
-        public static final int NUMBER_ADDED_FOR_SMELTERS = 21;
+        public static final int HALF_TILE_PIXEL_NUMBER = 32;
 
     }
 
