@@ -69,8 +69,8 @@ public class Playing extends GameScene implements SceneMethods {
     @Override
     public void render(Graphics g) {
         drawLevel(g);
+        drawElementsAndBuildings(g);
         drawResorcys(g);
-        drawElements(g);
         drawPopups(g);
     }
 
@@ -106,7 +106,7 @@ public class Playing extends GameScene implements SceneMethods {
 
     }
 
-    private void drawElements(Graphics g) {
+    private void drawElementsAndBuildings(Graphics g) {
     }
 
     private void getLevel() {
@@ -137,7 +137,11 @@ public class Playing extends GameScene implements SceneMethods {
 
     @Override
     public void mouseClicked(int x, int y) {
-
+        if(popupWindow==PopupWindow.BUILD_STRUCTURE){
+//            if(){
+//
+//            }
+        }
     }
 
     @Override
@@ -174,7 +178,10 @@ public class Playing extends GameScene implements SceneMethods {
                 }
                 break;
             case KeyEvent.VK_E:
-
+                popupWindow=PopupWindow.WAREHOUSE;
+                break;
+            case KeyEvent.VK_B:
+                popupWindow=PopupWindow.BUILD_STRUCTURE;
                 break;
             case KeyEvent.VK_X:
                 break;
