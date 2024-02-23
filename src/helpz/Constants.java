@@ -29,29 +29,26 @@ public class Constants {
         public static final int BLOCK_OF_COAL = 9;
 
 
-        public static final int IRON_BAR = 6;
-        public static final int COPRER_BAR = 7;
-        public static final int STEEL_BAR = 8;
-        public static final int GLASS = 4;
-        public static final int STONE_BRICK = 4;
-        public static final int WIRE = 4;
-        public static final int POWER_CORD = 4;
+        public static final int IRON_BAR = 10;
+        public static final int COPRER_BAR = 11;
+        public static final int STEEL_BAR = 12;
+        public static final int GLASS = 13;
+        public static final int STONE_BRICK = 14;
+        public static final int WIRE = 15;
+        public static final int POWER_CORD =16;
 
 
         public static int getDefaultCost(int itemType) {////////////////////////////////////////////////////
             switch (itemType) {
-                case IRON_ORE:
-                    return 1;
-                case COPRER_ORE:
-                    return 1;
-                case SAND:
-                    return 1;
-                case STONE:
+                case IRON_ORE, COPRER_ORE,SAND,STONE,WOOD:
                     return 1;
                 case COAL:
-                    return 1;
-                case WOOD:
-                    return 1;
+                    return 2;
+                case IRON_BAR,COPRER_BAR:
+                    return 3;
+                case BLOCK_OF_COAL:
+                    return 20;
+
 
                 default:
                     return 0;

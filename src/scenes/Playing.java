@@ -167,6 +167,10 @@ public class Playing extends GameScene implements SceneMethods {
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_ESCAPE:
+                if( popupWindow!=PopupWindow.NONE){
+                    popupWindow=PopupWindow.NONE;
+                    break;
+                }
                 if (playState == PlayGameState.PLAY_PLAY) {
                     playState = PlayGameState.PLAY_PAUSED;
                 }
