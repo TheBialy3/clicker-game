@@ -5,6 +5,8 @@ public class Constants {
 
         public static final int TILE_PIXEL_NUMBER = 64;
         public static final int HALF_TILE_PIXEL_NUMBER = 32;
+        public static final int NUMBER_OF_BUILDINGS_TYPES = 6;
+
 
     }
 

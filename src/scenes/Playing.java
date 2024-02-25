@@ -29,6 +29,7 @@ public class Playing extends GameScene implements SceneMethods {
         PLAY_PAUSED,
         PLAY_WIN,
         PLAY_CARD_SELECT;
+
     }
     public enum PopupWindow {
         NONE,
@@ -79,13 +80,17 @@ public class Playing extends GameScene implements SceneMethods {
             case NONE:
                 break;
             case WAREHOUSE:
+                drawPopupBacground  (g);
                 drawWarehousePopup(g);
                 break;
             case BUILD_STRUCTURE:
+                drawPopupBacground  (g);
                 break;
             case WORKSHOP:
+                drawPopupBacground  (g);
                 break;
             case FURNACE:
+                drawPopupBacground  (g);
                 break;
 
 
@@ -93,12 +98,12 @@ public class Playing extends GameScene implements SceneMethods {
     }
 
     private void drawWarehousePopup(Graphics g) {
-       drawPopupBacground  (g);
+
     }
 
     private void drawPopupBacground(Graphics g) {
         g.setColor(new Color(82, 82, 82));
-        g.drawRect((heightOfScreen/2-popupHeight/2)*TILE_PIXEL_NUMBER,(wightOfScreen/2-popupWight/2)*TILE_PIXEL_NUMBER,popupHeight*TILE_PIXEL_NUMBER,popupWight*TILE_PIXEL_NUMBER);
+        g.fillRect((heightOfScreen/2-popupHeight/2)*TILE_PIXEL_NUMBER,(wightOfScreen/2-popupWight/2)*TILE_PIXEL_NUMBER,popupHeight*TILE_PIXEL_NUMBER,popupWight*TILE_PIXEL_NUMBER);
 
     }
 
